@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+import Header from "./Header";
+import Home from "./Pages/Home";
+import DashBoard from "./Pages/Dashboard";  // Make sure this file exists
+import AddExpense from "./Pages/AddExpense"; // Ensure correct spelling
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-      <div>
-        <h1>Money manager</h1>
-        <p>Track your expenses and visualize your spending.</p>
-      </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/add-expense" element={<AddExpense />} />
+      </Routes>
+    </>
   );
-};
+}
 
-export default App
+export default App;
